@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <h2>{{ $post->post_title }}</h2>
                         <p class="card-text">{{ $post->post_content }}</p>
-                        <span class="badge text-white bg-dark p-2">{{ $post->post_author }}</span>
+                        <span class="badge text-white bg-dark p-2">{{ $post->user->name }}</span>
                         <span class="badge text-white bg-dark p-2">{{ $post->post_date }}</span>
                     </div>
                 </div>
