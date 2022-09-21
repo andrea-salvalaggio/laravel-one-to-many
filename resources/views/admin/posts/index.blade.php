@@ -20,8 +20,8 @@
                     <thead>
                         <tr>
                             <th scope="col">ID</th>
-                            <th scope="col">Title</th>
                             <th scope="col">Author</th>
+                            <th scope="col">Title</th>
                             <th scope="col">Date</th>
                             <th scope="col"></th>
                         </tr>
@@ -30,8 +30,8 @@
                         @forelse ($posts as $post)
                             <tr>
                                 <th scope="row" class="align-middle">{{ $post->id }}</th>
+                                <td class="align-middle">{{ $post->user->name }}</td>
                                 <td class="align-middle">{{ $post->post_title }}</td>
-                                <td class="align-middle">{{ $post->post_author }}</td>
                                 <td class="align-middle">{{ $post->post_date }}</td>
                                 <td>
                                     <a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-primary">View</a>
