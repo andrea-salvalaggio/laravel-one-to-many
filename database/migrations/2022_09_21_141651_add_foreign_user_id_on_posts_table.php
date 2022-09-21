@@ -14,7 +14,13 @@ class AddForeignUserIdOnPostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            
+            $table->unsignedBigInteger('user_id')->after('id');
+
+            $table->foreign('user_id')
+            ->references('id')
+            ->on('users');
+
         });
     }
 
@@ -26,7 +32,10 @@ class AddForeignUserIdOnPostsTable extends Migration
     public function down()
     {
         Schema::table('posts', function (Blueprint $table) {
-            //
+            
+            // Importante droppare prima la colonna (dropForeign)
+            $table->dropForeign('posts_user_id_foreign');
+            $table->dropColumn('user_id');
         });
     }
 }
